@@ -84,7 +84,7 @@ def eval(x, env: Env = global_env):
         return proc(*exps)
 
 
-def read(s: str):
+def read(s: str) -> typing.Union[typing.List, Symbol, float]:
     "文字列からScheme式を読み込む。"
     return read_from(tokenize(s))
 
@@ -97,7 +97,7 @@ def tokenize(s: str) -> typing.List[str]:
     return s.replace("(", " ( ").replace(")", " ) ").split()
 
 
-def read_from(tokens: typing.List[str]):
+def read_from(tokens: typing.List[str]) -> typing.Union[typing.List, Symbol, float]:
     "トークンの列から式を読み込む。"
     if len(tokens) == 0:
         raise SyntaxError("unexpected EOF while reading")
@@ -125,9 +125,9 @@ def atom(token: str) -> typing.Union[Symbol, float]:
             return Symbol(token)
 
 
-def to_string(exp):
+def to_string(exp) -> str:
     "PythonオブジェクトをLispの読める文字列に戻す。"
-    return "(" + " ".join(map(to_string, exp)) + ")" if isa(exp, list) else str(exp)
+    return f'({" ".join(map(to_string, exp))})' if isa(exp, list) else str(exp)
 
 
 def repl(prompt: str = "lis.py> ") -> None:
