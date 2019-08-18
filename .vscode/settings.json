@@ -7,6 +7,6 @@
   "python.linting.flake8Args": ["--max-line-length", "88"],
   "python.linting.mypyEnabled": true,
   "python.linting.pylintEnabled": false,
-  "python.unitTest.unittestEnabled": true,
-  "python.unitTest.unittestArgs": ["discover", "test"]
+  "python.testing.unittestEnabled": true,
+  "python.testing.unittestArgs": ["discover", "test"]
 }
