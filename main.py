@@ -1,9 +1,9 @@
 from prompt_toolkit import PromptSession
-from prompt_toolkit.lexers import PygmentsLexer
 from prompt_toolkit.completion import WordCompleter
+from prompt_toolkit.lexers import PygmentsLexer
 from pygments.lexers.lisp import SchemeLexer
 
-from lispy import eval, parse, to_string, eof_object
+from lispy import eof_object, eval, parse, to_string
 
 
 def main(prompt="lispy> "):

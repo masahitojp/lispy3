@@ -255,7 +255,7 @@ def add_globals(self):
             "symbol?": lambda x: isa(x, Symbol),
             "boolean?": lambda x: isa(x, bool),
             "pair?": is_pair,
-            "port?": lambda x: isa(x, file),
+            "port?": lambda x: isa(x, open),
             "apply": lambda proc, l: proc(*l),
             "eval": lambda x: eval(expand(x)),
             "load": lambda fn: load(fn),
@@ -428,7 +428,7 @@ eval(
     parse(
         """(begin
 
-(define-macro and (lambda args 
+(define-macro and (lambda args
    (if (null? args) #t
        (if (= (length args) 1) (car args)
            `(if ,(car args) (and ,@(cdr args)) #f)))))
@@ -442,4 +442,3 @@ eval(
 
 if __name__ == "__main__":
     repl()
-

@@ -4,9 +4,14 @@
   "python.pythonPath": "${workspaceFolder}/.venv/bin/python",
   "python.formatting.provider": "black",
   "python.linting.flake8Enabled": true,
-  "python.linting.flake8Args": ["--max-line-length", "88"],
+  "python.linting.flake8Args": [
+    "--ignore=E266, W293, W503, W504",
+    "--max-line-length",
+    "88"
+  ],
   "python.linting.mypyEnabled": true,
   "python.linting.pylintEnabled": false,
   "python.testing.unittestEnabled": true,
-  "python.testing.unittestArgs": ["discover", "test"]
+  "python.testing.unittestArgs": ["discover", "test"],
+  "python.sortImports.args": ["-rc", "--atomic"]
 }
